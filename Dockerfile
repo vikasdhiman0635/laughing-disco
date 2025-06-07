@@ -1,5 +1,5 @@
 # Use Node.js to build Angular app
-FROM node:22.12 AS builder
+FROM node:24.1 AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
