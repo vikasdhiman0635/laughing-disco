@@ -40,4 +40,4 @@ jobs:
         context: .
         file: Dockerfile
         push: true
-        tags: viveksinghsahu/angular-app.01
+        tags: viveksinghsahu/learnnn.v1
