@@ -10,6 +10,6 @@
 # Use Nginx for serving the built Angular app
 FROM nginx:1.25-alpine
 RUN rm -rf /usr/share/nginx/html/index.html
-COPY --from=builder /app/dist/Learnnn/browser/ /usr/share/nginx/html/
+COPY  /dist/Learnnn/browser/ /usr/share/nginx/html/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
