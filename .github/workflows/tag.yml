@@ -1,12 +1,29 @@
 name: Deploy to PRE
 on:
   workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name (e.g., v1.0.0)'
+        required: true
+        type: string
   push:
     branches:
       - master
 
 jobs:
-  build:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create Git tag
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git tag ${{ inputs.tag_name }}
+          git push origin ${{ inputs.tag_name }}
+
+  tag-create:
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -20,3 +37,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
         WITH_V: false
+
+    
