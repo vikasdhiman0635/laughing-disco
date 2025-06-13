@@ -1,11 +1,8 @@
-name: Angular CI/CD with Docker
-
+name: Deploy to DEV env
 on:
   workflow_dispatch:
   push:
-    branches: [ ] # Changed back to 'master'
-  pull_request:
-    branches: [ ]
+    branches: [ develop ]
 
 jobs:
   build:
