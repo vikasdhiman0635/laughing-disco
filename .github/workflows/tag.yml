@@ -1,5 +1,6 @@
-name: Tag Generator
+name: Deploy to PRE
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
