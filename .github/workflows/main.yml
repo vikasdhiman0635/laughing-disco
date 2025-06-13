@@ -1,10 +1,11 @@
 name: Angular CI/CD with Docker
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ master ] # Changed back to 'master'
+    branches: [ ] # Changed back to 'master'
   pull_request:
-    branches: [ master ]
+    branches: [ ]
 
 jobs:
   build:
